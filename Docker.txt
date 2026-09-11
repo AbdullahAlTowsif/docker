@@ -1,0 +1,47 @@
+IMAGE > CONTAINER --> karon image theke amra container run kori
+1. To see all the images = docker images
+2. To see active/running containers = docker ps
+3. To see all the container including hidden = docker ps -a
+4. To remove image = docker rmi image_id | To remove forcefully = docker rmi -f image_id
+5. To pull image = docker pull name_with_version
+NOTE: -it meaning,
+-i = standard input
+t = pseudo TTY --> Terminal
+-it = interactive mode
+6. To run the image = docker run -it ubuntu:24.04 bash
+7. To run the image with a given container name = docker run --name my_ubuntu -it ubuntu:24.04 bash
+8. To run via the container name = docker exec -it my_ubuntu bash
+9. To build your own image = docker build .
+10. To build your own image with given image name = docker build -t image_name .
+11. 
+
+******* Towards the Dockerfile *******
+1. pull the ubuntu image
+2. run a container from the ubuntu image
+3. go inside the container
+4. install the golang ---> apt update | apt install -y golang
+5. create a directory 'app'
+6. copy the server.go file from host machine to docker container in the /app/server.go
+---> docker cp server.go 4179ad0259b7:/app/server.go
+Here cp = copy
+server.go = which file i want to copy from my host machine
+4179ad0259b7:/app/server.go = container id:path (in which container i want to copy with the specific path)
+7. Then cat server.go = to see if everything is copied successfully
+8. Run the go app inside the container ---> apt update | apt install -y curl ---> curl localhost:8080
+NOTE: Before running container make sure to run the image and make sure the server is running then execute the container
+9. Now converting it into image ---> docker commit <container id> go_server
+docker commit <container id> <image name> ---> this is also creating image
+# Note: So first run the go_server image and make sure the server is listening/running
+then execute the container to check if the server gives response or not.
+
+=> So this step by step is quite a lengthy process that's why we need the Dockerfile. Means Towards the docker file.
+
+** If Dockerfile consists of CMD command then - 
+    to run image: docker run <image_name:version>
+
+
+*** Managing Containers ***
+1. To start a container ---> docker start <container_id | container_name>
+2. To restart a container ---> docker restart <container_id | container_name>
+3. To remove a container ---> docker rm <container_id | container_name>
+4. To stop a container --> docker stop <container_id | container_name>

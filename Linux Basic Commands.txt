@@ -1,0 +1,91 @@
+Linux Basic Commands
+--------------------
+1. present working directory --> pwd
+2. list --> ls, ls -l, ls -a, ls -la
+3. change directory --> cd
+4. mkdir --> make a new folder
+5. touch filename --> create a file
+6. rm filename --> remove the file
+7. cat filename --> see the contents of the file
+8. head/tails -n filename e.g. head -n 6 a.txt (here 5 means first 5 lines)
+9. echo >> filename --> file er sathe add hoy content
+10. echo > filename --> append new content previous content removed e.g. echo hello world > a.txt
+11. rm foldername --> removes a folder
+12. rm -rf foldername --> removes a folder forcefully
+13. mkdir -p folder1/folder2 --> creates a folder inside another folder at the same time
+14. cp file1.txt file2.txt --> copies file1 contents inside file2
+15. cp -r folder1/ folder2/ --> copies everything from folder1 to folder2
+16. mv filePrv.txt fileNew.txt --> renames filePrv to fileNew
+
+Managing User Group & Permission
+--------------------------------
+1. useradd -m username ---> To create new user
+2. id username ---> To see the identification of the user
+** To see the list how many users in the system
+3. cd /etc/ ---> First go to this folder
+4. cat passwd ---> You can see all the users
+** In one line: cat /etc/passwd **
+******************************************
+5. cd / ---> To come to the root directory
+6. cd home --> ls ---> Then you can see the users
+7. useradd -m userName ---> (-m na dile user create hobe kintu home directory te folder create hobe na)
+8. cd ~ ---> Jkhono user er home directory te jawar jonno
+9. su - username ---> To switch user
+Notice: root@6eb00c35567f:~# ---> root user hole # | $ ---> onno user hole
+10. exit --> exit korle root user e back krbo
+Note: Root user e jawar por passwd set korte parbo karon or sob power thake.
+11. userdel -r username --->  (-r na dile home directory theke jabe)
+12. usermod -L userName ---> To lock a user.
+13. usermod -U username ---> To unlock a user.
+14. groupadd grpName ---> To create a group
+15. cat /etc/group ---> To see all the group
+16. groups ---> to see current user kon group e connected ache.
+17. usermod -aG groupName username  ---> (-aG = append group) kono ekta particular user k kono ekta group e add korte chaile
+18. groupdel grpName ---> to delete a group
+19. gpasswd -d userName grpName ---> To remove a user from a particular group
+
+### Permission Group ###
+** ls -l ---> to see the permission
+
+rwx => r= read, w=write, x=execute
+Here, rw-rw-r-- ==> (rw-)user, (rw-)group, (r--)others
+Let's explain this one: -rw-rw-r-- 1 towsif towsif    0 Sep  8 18:36 a.txt
+Here,
+- = Regular file
+rw-rw-r-- = File permissions
+1 = Number of hard links
+towsif = owner(user)
+towsif = Group
+0 = File size by bytes (empty file)
+Sep 8 18:36 = Last modified date and time
+a.txt = File name
+
+First towsif --> user --> read, write but NO execute
+Second towsif --> group --> (if any other users stays in this group like userX) --> read, write, NO execute
+Finally, others --> read, but NO write & execute.
+
+Let's explain this one now: drwxrwxr-x 2 towsif towsif 4096 Sep  8 18:36 files
+Here,
+d = directory
+drwxrwxr-x = permissions
+2 = Number of links to the directory
+towsif = Owner (user)
+towsif = group
+4096 = Directory size by bytes
+Sep 8 18:36 = Last modification time
+files = Directory name
+
+** chmod u+x a.txt ---> to give execution permission
+Explanation,
+chmod = change mode
+u+x = to give the user execution permission
+a.txt = to this file
+
+** chmod u-w a.txt ---> to remove write permission from the user
+** chmod g-r a.txt ---> to remove write permission from the group
+** chmod o+x a.txt ---> to give execution permission to others
+** chown newUser file.txt ---> chown (change ownership) of the particular file to the newUser
+
+
+User 2 types ==> root, normal
+Group 2 types ==> primary (gid), supplementary
