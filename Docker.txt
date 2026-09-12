@@ -13,7 +13,6 @@ t = pseudo TTY --> Terminal
 8. To run via the container name = docker exec -it my_ubuntu bash
 9. To build your own image = docker build .
 10. To build your own image with given image name = docker build -t image_name .
-11. 
 
 ******* Towards the Dockerfile *******
 1. pull the ubuntu image

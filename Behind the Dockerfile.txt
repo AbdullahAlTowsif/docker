@@ -34,5 +34,8 @@ Step5: COPY ./server.go ./server.go
     * remove temporary container
 ---> New image Named Layer 4 and attach CMD ["go", "run", "server.go"] (Layer 4 image)
 
+Intermediate Layer (Layer 0 - Layer 3)
+Final Layer (Layer 4)
+
 We give docker build -t go_server:1.0.1
 ---> This layer 4 image name is go_server:1.0.1 (What we actually build)

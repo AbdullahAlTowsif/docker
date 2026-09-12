@@ -1,0 +1,68 @@
+OSI ---> Open System Interconnection (1984 invented by ISO) ---> OSI Model
+ISO ---> International Organization for Standardization
+
+* Open (Any)
+* System (Components, Resouce Share)
+* Interconnection (Communicating With Any System)
+
+** OSI Model 7 Layers **
+Shortcut Technique: Please Do Not Tell Secret Password to Anyone
+
+Anyone = Application Layer ---> Level 7
+Password = Presentation Layer ---> Level 6
+Secret = Session Layer ---> Level 5
+Tell = Transport Layer ---> Level 4
+Not = Network Layer ---> Level 3
+Do = Data Link Layer ---> Level 2
+Please = Physical Layer ---> Level 1 Layer
+
+** Most Important Layers (Level 2, Level 4, Level 7)
+
+Now let's see the scenario,
+Computer 1 (Sender) | Computer 2 (Receiver)
+
+Compuer 1 (Senders Side)
+Application Layer
+Facebook --> (Hello) Send
+
+Presentation Layer
+Computer won't understand the hello. So it formats the Data
+Such as: json, xml, yaml, png, jpg, webp, mp4, mp3 etc.
+Suppose the data in json format: { "data": "Hello" }
+
+Session Layer
+Manages the connection between Sender and Receiver
+Such as: Keep alive the connection, end the connection, handle connection
+
+Transport Layer
+Converts the data into segments
+Sender and Receiver Ports are added into the segments ([s_p:3000 {data} r_p: 5000]) --> segment
+
+Network Layer
+Converts the segments into packet
+Adding IP before and after the segment [s_ip (192.168.10.05) {segment} r_ip (192.168.10.06)] --> packet
+
+Data Link Layer
+Converts the packet into Frame
+Adding MAC Address before and after packet [s_mac_add {packet} r_mac_add] --> Frame
+
+Physical Layer
+Converts the Frame into Bit (110101011)
+Sender sends the Bit to the Receiver Computer
+
+
+Compuer 2 (Receiver's Side)
+Converts Bit into Frames
+Frames into packet
+packet into segment
+now the data is converted to json
+and Receiver sees the data Hello
+
+
+Every Layers Protocol
+Application Layer ---> http, https, SSH, SMTP, FTP, SFTP
+Presentation Layer ---> utf-8, ssl/tls, compress, convert
+Session Layer
+Transport Layer ---> TCP/UDP
+Network Layer ---> IP
+Data Link Layer ---> Ethernet, ARP, Wi-Fi
