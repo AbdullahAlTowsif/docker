@@ -1,0 +1,38 @@
+*** Building Magic Behind The Dockerfile ***
+
+Step1: FROM ubuntu:24.04
+    * just check cache
+    * pull from docker hub
+    * image just load
+---> This is called Layer 0
+
+Step2: RUN apt update
+    * create temporary container ---> this temporary container is created from layer 0 container
+    * run -> apt update
+    * commit container
+    * remove temporary container
+---> commit korar fole Layer 1 create hoy
+
+Step3: RUN apt install -y golang
+    * create temporary container ---> this temporary container is created from layer 1 container
+    * run -> apt install -y golang
+    * commit container
+    * remove temporary container
+---> New image Named Layer 2
+
+Step4: WORKDIR /app
+    * create temporary container ---> this temporary container is created from layer 2 container
+    * WORKDIR /app
+    * commit container
+    * remove temporary container
+---> New image Named Layer 3
+
+Step5: COPY ./server.go ./server.go
+    * create temporary container ---> this temporary container is created from layer 3 container
+    * COPY ./server.go ./server.go
+    * commit container
+    * remove temporary container
+---> New image Named Layer 4 and attach CMD ["go", "run", "server.go"] (Layer 4 image)
+
+We give docker build -t go_server:1.0.1
+---> This layer 4 image name is go_server:1.0.1 (What we actually build)
