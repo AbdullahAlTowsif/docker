@@ -1,0 +1,31 @@
+** TCP/IP Model Layers **
+Level 7: Application Layer
+Level 4: Transport Layer
+Level 3: Network Layer
+Level 2: Data Link Layer
+Level 1: Physical Layer
+
+Who introduced it? ---> ARPANET (Advanced Research Projects Agency Network)
+US Defense Department --> Creates ARPANET Organization 1969
+
+Application Layer
+Hello ---> { "msg": "Hello" } ---> compress --> binary
+
+Transport Layer: 2 Protocol (TCP/UDP)
+TCP = Transmission Control Protocol ---> Used for text, json, xml etc. ---> Data 100% controlled must go
+UDP = User Datagram Protocol ---> Used for video ----> Data could be miss
+
+In the Transport Layer If using 
+    TCP ---> Converts to Segments
+If using
+    UDP ---> Converts to Datagram
+
+Network Layer
+sender_ip {data (Segment | Datagram)} receiver_ip ----> Packet
+
+Data Link Layer
+sender_mac_add {Packet} receiver_mac_add ------> Frame
+
+Physical Layer
+data converts to bits
+
