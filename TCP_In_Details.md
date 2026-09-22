@@ -219,9 +219,4 @@ Understanding TCP deeply helps you understand:
 
 ---
 
-**Pro Tip from the video comments:**  
-Watch at 1.5x–2x speed the second time and take notes. This is one of the most foundational classes in the entire Docker series.
-
----
-
 *Notes prepared based on the video content by Go With Habib.*
