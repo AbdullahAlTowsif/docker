@@ -1,7 +1,4 @@
-# [Docker] 046 - Networking Inside A Network | English & Bangla
-
-**Channel:** Go With Habib  
-**Playlist:** Docker (Beginner to Pro)
+# Networking Inside A Network
 
 This class explains **how computers communicate with each other inside the same network (LAN)**.  
 It introduces **ARP (Address Resolution Protocol)** and shows the complete journey of a packet through Hubs and Switches in a complex network topology.
